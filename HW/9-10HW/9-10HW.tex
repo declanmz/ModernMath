@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 1: Sets}
+\author{Declan Murphy Zink}
+\date{9/10/2020}
+
+\maketitle
+
+\section{
+    Let A be the set $\{\alpha,\{1,\alpha\},\{3\},\{\{1,3\}\},3\}.$ 
+    Which of the following statements are true and which are false?
+}
+\subsection{$\alpha \in A.$}
+true
+\subsection{$\{\alpha\} \notin A.$}
+true
+\subsection{$\{1,\alpha\} \subseteq A.$}
+false
+\subsection{$\{3,\{3\}\} \subseteq A.$}
+true
+\subsection{$\{1,3\} \in A.$}
+false
+\subsection{$\{\{1,3\}\} \subseteq A.$}
+false
+\subsection{$\{\{1,\alpha\}\} \subseteq A.$}
+true
+\subsection{$\{1,\alpha\} \notin A.$}
+false
+\subsection{$\emptyset \subseteq A.$}
+true
+
+\section{
+    Let B,C,D,E be the following sets:
+}
+\begin{gather*}
+    B = \{x|x$ a real number$,x^2 < 4\},\\
+    C = \{x|x$ a real number$, 0 <= x < 2\},\\
+    D = \{x|x \in \mathds{Z} ,x^2 < 1\},\\
+    E = \{1\}.
+\end{gather*}
+\subsection{Which pair of these sets has the property that neither is contained in the other?}
+Sets D and E
+\subsection{
+    You are given that X is one of the sets B,C,D,E, but you do not know which one.
+    You are also given that $E \subseteq X$ and $X \subseteq B$. What can you deduce about X?
+}
+X is either B or E\\\\
+
+\section{
+    Which of the following arguments are valid?
+    For the valid ones, write down the argument symbolically.
+}
+\subsection{
+    I eat chocolate if I am depressed.
+    I am not depressed.
+    Therefore I am not eating chocolate.
+}
+Not valid
+\subsection{
+    I eat chocolate only if I am depressed.
+    I am not depressed.
+    Therefore I am not eating chocolate.
+}
+Valid. If C is eating chocolate and D is being depressed, then $P \Leftrightarrow D$, so $\bar{P} \Leftrightarrow \bar{D}$.
+\subsection{
+    If a movie is not worth seeing, then it was not made in England.
+    A movie is worth seeing only if critic Ivor Smallbrain reviews it.
+    The movie \emph{Cat on a Hot Tin Proof} was not reviewed by Ivor Smallbrain.
+    Therefore \emph{Cat on a Hot Tin Proof} was not made in England.
+}
+Valid. If W is worth seeing, E is made in England, and I is reviewed by Ivor Smallbrain, 
+then $\bar{W} \Rightarrow \bar{E}$ and $W \Leftrightarrow I$.
+Therefore $\bar{I} \Leftrightarrow \bar{W}$ and then $\bar{I} \Rightarrow \bar{E}$.
+\end{document}
