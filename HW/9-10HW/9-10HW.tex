@@ -56,7 +56,7 @@ Sets D and E
     You are given that X is one of the sets B,C,D,E, but you do not know which one.
     You are also given that $E \subseteq X$ and $X \subseteq B$. What can you deduce about X?
 }
-X is either B or E\\\\
+X is not the set D\\\\
 
 \section{
     Which of the following arguments are valid?
@@ -73,7 +73,7 @@ Not valid
     I am not depressed.
     Therefore I am not eating chocolate.
 }
-Valid. If C is eating chocolate and D is being depressed, then $P \Leftrightarrow D$, so $\bar{P} \Leftrightarrow \bar{D}$.
+Valid. If C is eating chocolate and D is being depressed, then $C \Rightarrow D$, so $\bar{D} \Rightarrow \bar{C}$.
 \subsection{
     If a movie is not worth seeing, then it was not made in England.
     A movie is worth seeing only if critic Ivor Smallbrain reviews it.
@@ -81,6 +81,6 @@ Valid. If C is eating chocolate and D is being depressed, then $P \Leftrightarro
     Therefore \emph{Cat on a Hot Tin Proof} was not made in England.
 }
 Valid. If W is worth seeing, E is made in England, and I is reviewed by Ivor Smallbrain, 
-then $\bar{W} \Rightarrow \bar{E}$ and $W \Leftrightarrow I$.
-Therefore $\bar{I} \Leftrightarrow \bar{W}$ and then $\bar{I} \Rightarrow \bar{E}$.
+then $\bar{W} \Rightarrow \bar{E}$ and $W \Rightarrow I$.
+Therefore $\bar{I} \Rightarrow \bar{W}$ and then $\bar{I} \Rightarrow \bar{E}$.
 \end{document}

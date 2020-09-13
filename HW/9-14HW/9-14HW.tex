@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 2: Logic}
+\author{Declan Murphy Zink}
+\date{9/14/2020}
+\maketitle
+
+\setcounter{section}{5}
+\section{Write down careful proofs of the following statements:}
+\subsection{$\sqrt{6}-\sqrt{2}>1.$}
+$\sqrt{6}-\sqrt{2} \leq 1 \Rightarrow (\sqrt{6}-\sqrt{2})^2 \leq 1 \Rightarrow
+10 - 2 \sqrt{12} \leq 1 \Rightarrow 9 \leq 2 \sqrt{12} \Rightarrow 81 \leq 48$\\
+Contradiction
+
+\subsection{If $n$ is an integer such that  $n^2$ is even, then $n$ is even.}
+If $n$ is odd, $n = 2a + 1$ for $a \in \mathds{Z}$. Therefore $n^2 = 4a^2 + 4a + 1$, which is always odd.
+Thus if $n^2$ is even, $n$ must be even.
+
+\subsection{If $n = m^3 - m$ for some integer $m$, then $n$, is a multiple of 6.}
+For all integers $m$, $(m^2-m)(m+1)$ will produce a multiple of 3:
+\begin{itemize}
+    \item If $m$ is a multiple of 3 such that $m = 3a, a \in \mathds{Z}$:
+    $$((3a)^2-3a)(3a+1) = 27a^3-3a$$
+    \item If $m$ is one more than a multiple of 3 such that $m = 3a+1, a \in \mathds{Z}$:
+    $$((3a+1)^2-(3a+1))((3a+1)+1) = (9a^2+3a)(3a+2) = 27a^3 + 27a^2 + 6a$$
+    \item If $m$ is two more than a multiple of 3 such that $m = 3a+2, a \in \mathds{Z}$:
+    $$((3a+2)^2-(3a+2))((3a+2)+1) = (9a^2+9a+2)(3a+3) = 27a^3 + 54a^2 + 33a + 6$$
+\end{itemize}
+For all integers $m$, $m(m-1)$ will produce a multiple of 2:
+\begin{itemize}
+    \item If $m$ is a multiple of 2 such that $m = 2a, a \in \mathds{Z}$:
+    $$2a(2a-1) = 4a^2 - 2a$$
+    \item If $m$ is one more than a multiple of 2 such that $m = 2a + 1, a \in \mathds{Z}$:
+    $$(2a+1)(2a+1-1) = 4a^2 + 2a$$
+\end{itemize}
+Becuase $m^3 - m = (m^2-m)(m+1)$, $n$ must be a multiple of 3. Becacuse $(m^2-m) = m(m-1)$, $n$ must be a multiple of 2.
+Because $n$ is a multiple of 2 and 3, $n$ must be a multiple of 6.
+
+\section{Disprove the following statements:}
+\subsection{If $n$ and $k$ are positive integers, then $n^k - n$ is always divisible by $k$.}
+This is false when $n=3$ and $k=4$, because $3^4-3 = 78$, which is not divisible by 4.
+\subsection{Every positive integer is the sum of three squares.}
+The integer 7 cannot be created, so this is false.
+
+\section{
+    Given that the number 8881 is not a prime number, prove that it has a prime factor that is at most 89.
+}
+The smallest prime factor of 8881 must be less than or equal to its square root 
+because, otherwise, the prime factors would always multiply to be greater than 8881.
+$\sqrt{8881} \approx 94$, therefore, since the nearest prime number below 94 is 89, 
+8881 must have a prime factor that is at most 89.
+
+\end{document}
