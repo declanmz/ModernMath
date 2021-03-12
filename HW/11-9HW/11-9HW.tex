@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 21: Congruence 4}
+\author{Declan Murphy Zink}
+\date{11/9/2020}
+\maketitle
+
+\setcounter{section}{5}
+
+\section{
+    The number $(p-1)!$ (mod p) came up in our proof of Fermat's Little Theorem, although we didn't need to find it.
+    Calculate $(p-1)!$ (mod p) for some small prime numbers $p$. Find a pattern and make a conjecture.
+    Prove your conjecture!
+}
+$p=2 \Rightarrow (p-1)! \equiv 1 \equiv -1$ mod 2\\
+$p=3 \Rightarrow (p-1)! \equiv 2 \equiv -1$ mod 3\\
+$p=5 \Rightarrow (p-1)! \equiv 24 \equiv -1$ mod 5\\
+$p=7 \Rightarrow (p-1)! \equiv 720 \equiv -1$ mod 7\\\\
+Conjecture: For a prime number $p$, $(p-1)! \equiv -1$ mod p\\\\
+Proof:\\
+$(p-1)! = (1)(2)(3)...(p-3)(p-2)(p-1)$\\
+Let $a_1 = 1,..., a_{p-1} = p-1$\\
+Since $p$ is prime we know that any $a_i$ must be coprime to $p$.\\
+This means $\forall$ $a_i$ $\exists$ $x \in \mathds{Z}_p$ such that $a_i x \equiv 1$ mod p.
+This $x$ is unique in $\mathds{Z}_p$.\\
+For 1 and $p-1$, $x$ 
+
+\end{document}

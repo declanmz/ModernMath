@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 16: Integers}
+\author{Declan Murphy Zink}
+\date{10/22/2020}
+\maketitle
+
+\setcounter{section}{0}
+
+\section{
+    For each of the following pairs $a,b$ of integers, find the highest common factor $d = hef(a,b)$, and find integers $s,t$ such that $d=sa+tb$:
+}
+\subsection{$a = 17, b = 29$}
+\begin{align*}
+    29&=(17)+12\\
+    17&=1(12)+5\\
+    12&=2(5)+2\\
+    5&=2(2)+1\\
+    2&=2(1)+0
+\end{align*}
+$hef(17,29)=1$
+
+\begin{align*}
+    1&=5-2(2)\\
+    1&=5-2(12-2(5))\\
+    1&=-2(12)+5(5)\\
+    1&=-2(12)+5(17-12)\\
+    1&=5(17)-7(12)\\
+    1&=5(17)-7(29-17)\\
+    1&=12(17)-7(29)
+\end{align*}
+$s=12,t=-7$
+
+
+\subsection{$a=552,b=713$}
+\begin{align*}
+    713&=1(552)+161\\
+    552&=3(161)+69\\
+    161&=2(69)+23\\
+    69&=3(23)+0
+\end{align*}
+$hef(552,713)=23$
+
+\begin{align*}
+    23&=161-2(69)\\
+    23&=161-2(552-3(161))\\
+    23&=-2(552)+7(161)\\
+    23&=-2(552)+7(713-552\\
+    23&=-9(552)+7(713)
+\end{align*}
+$s=-9,t=7$
+
+
+\subsection{$a=345,b=299$}
+\begin{align*}
+    345&=1(299)+46\\
+    299&=6(46)+23\\
+    46&=2(23)+0
+\end{align*}
+$hef(345,288)=23$
+
+\begin{align*}
+    23&=299-6(46)\\
+    23&=299-6(345-299)\\
+    23&=-6(345)+7(299)
+\end{align*}
+$s=-6,t=7$
+
+
+\setcounter{section}{3}
+
+\section{}
+\subsection{Show that for all positive integers $n$, $hcf(6n+8,4n+5)=1$.}
+\begin{align*}
+    6n+8&=1(4n+5)+(2n+3)\\
+    4n+5&=1(2n+3)+(2n+2)\\
+    2n+3&=1(2n+2)+1
+\end{align*}
+Thus, $hcf(6n+8,4n+5)=1$
+
+\subsection{Suppose $a,b$ are integers such that $a|b$ and $b|a$. Prove that $a=\pm b$.}
+If $a|b$ then $b=ca,c\in \mathds{Z}$. If $b|a$ then $a=db,d\in \mathds{Z}$. Thus, $b=cdb$ so $cd=1$.
+Since $c,d \in \mathds{Z}$, either $c=1,d=1$ or $c=-1,d=-1$, so $a=\pm b$.
+
+\subsection{Suppose $s,t,a,b$ are integers such that $sa+tb=1$. Show that $hcf(a,b)=1$.}
+Any common factor of $a$ and $b$ would also be a factor of $sa+tb$,
+thus any common factor of $a$ and $b$ is also a factor of $1$.
+The only positive factor of $1$ is $1$ itself, so $hcf(a,b)=1$.
+
+
+\section{}
+\subsection{Let $m,n$ be coprime integers, and suppose $a$ is an integer which is divisible by both $m$ and $n$. Prove that $mn$ divides $a$.}
+Since $m|a$ and $n|a$, $a = bm$ and $a=cn$ for some $b,c \in \mathds{Z}$.
+Since $m$ and $n$ are coprime, $sm+tn=1$ for some $s,t \in \mathds{Z}$.\\
+Multiplying $sm+tn=1$ by $b$:
+\begin{align*}
+    bsm+btn&=b\\
+    as+btn&=b\\
+    cns+btn&=b\\
+    (cs+bt)n&=b
+\end{align*}
+Therefore $n|b$, so $b=dn$ for some $d \in \mathds{Z}$. Thus, $a=dnm$, which means $mn|a$.
+
+\subsection{
+    Show that the conclusion of part (a) is false if $m$ and $n$ are not coprime
+    (i.e., show that if $m$ and $n$ are not coprime, there exists an integer $a$ such that
+    $m|a$ and $n|a$, but $mn$ does not divide $a$).
+}
+Counterexample: If $m=8,n=4,a=16$, $m|a$ because $8|16$ and $n|a$ because $4|16$,
+however $mn$ does not divide $a$ because $4\cdotp 8=32$ does not divide $16$.\\\\
+Generalized: If $m$ and $n$ are not coprime, then, if $d=hcf(m,n)$, $d>1$.
+$m$ and $n$ can be rewritten as $m=dj$ and $n=dk$ for some $j,k \in \mathds{Z}$.
+If $a = djk$, then $m|a$ and $n|a$, but $mn$ will not divide $a$ 
+because $\frac{djk}{(dj)(dk)} = \frac{1}{d}$, which is not an integer since $d>1$.
+
+\subsection{Show that if $hcf(x,m)=1$ and $hcf(y,m)=1$, then $hcf(xy,m)=1$.}
+If $hcf(x,m)=1$ and $hcf(y,m)=1$, then $sx+tm=1$ and $ey+bm=1$ for some $s,t,e,b \in \mathds{Z}$.\\
+Multiplying these equations:
+\begin{align*}
+    sexy+sbxm+temy+tbm^2&=1\\
+    sexy+(sbx+tey+tbm)m&=1
+\end{align*}
+Let $c=xy$ and $d=sbx+tey+tbm$, then $c(xy) + dm = 1$. 
+Since $c$ and $d$ are both integers, this shows that $hcf(xy,m)=1$.
+
+\end{document}

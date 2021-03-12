@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 18: Prime Factorization}
+\author{Declan Murphy Zink}
+\date{10/26/2020}
+\maketitle
+
+\setcounter{section}{1}
+
+\section{}
+\subsection{Which positive integers have exactly three positive divisors?}
+Squared prime numbers have exactly three positive divisors. If the prime is $a$, then these divisors are $1$, $a$, and $a^2$.
+
+\subsection{Which positive integers have exactly four positive divisors?}
+Cubed prime numbers have exactly four positive divisors. If the prime is $a$, then these divisors are $1$, $a$, $a^2$, and $a^3$. \\\\
+Also products of two distinct prime numbers have exactly four positive divisors. If the primes are $a$ and $b$,
+then these divisors are $1$, $a$, $b$, and $ab$.
+
+\section{
+    Suppose $n \geq 2$ is an integer with the property that whenever a prime $p$ divides $n$, $p^2$ also divides $n$
+    (i.e., all primes in the prime factorization of $n$ appear at least to the power 2).
+    Prove that $n$ can be written as the product of a square and a cube.
+}
+Let $n = p_1^{s_1}...p_k^{s_k}, s_i \geq 2$. We can write $s_i$ as $2u_i + 3v_i$
+for integers $u_i, v_i \geq 0$ since $2u_i + 3v_i$ can produce all integers $\geq 2$.
+(This can be proven because all even numbers $\geq 2$ can be created with $2u_i$ , 
+all odd numbers $ \geq 2$ that are multiples of 3 can be created with $3v_i$,
+and all odd numbers $ \geq 2$ that are not multiples of 3 can be created with $2u_i + 3(1)$.)
+Thus $n = p_1^{2u_1 + 3v_1}...p_k^{2u_k + 3v_k} = (p_1^{2u_1}...p_k^{2u_k})(p_1^{3v_1}...p_k^{3v_k}) = (p_1^{u_1}...p_k^{u_k})^2(p_1^{v_1}...p_k^{v_k})^3$,
+which is the product of a square and a cube.
+
+\section{
+    Prove that $lcm(a,b) = \frac{ab}{hcf(a,b)}$ for any positive integers $a,b$ without using prime factorization.
+}
+$\frac{ab}{hcf(a,b)}$ is a multiple of $a$ and $b$ because $\frac{ab}{hcf(a,b)} = a(\frac{b}{hcf(a,b)}) = b(\frac{a}{hcf(a,b)})$
+and $\frac{b}{hcf(a,b)}$ and $\frac{a}{hcf(a,b)}$ are both integers.\\\\
+Let $u$ be a multiple of $a$ and $b$ such that $u = \frac{ab}{s}, s \in \mathds{Z}$.
+Thus, $\frac{u}{a} = \frac{b}{s} \Rightarrow s|b$ since $\frac{u}{a}$ is an integer.
+Likewise $\frac{u}{b} = \frac{a}{s} \Rightarrow s|a$. Because $s|a$ and $s|b$, it must be true that $s|hcf(a,b)$.
+Thus, the highest value possible for $s = hcf(a,b)$, so the lowest possible value for $u = \frac{ab}{hcf(a,b)}$.
+Hence, $lcm(a,b) = \frac{ab}{hcf(a,b)}$.
+
+\end{document}

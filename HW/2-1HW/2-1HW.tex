@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{More on Sets 1}
+\author{Declan Murphy Zink}
+\date{2/1/2021}
+\maketitle
+
+\setcounter{section}{1}
+
+\section{Which of the following statements are true and which are false? Give proofs or counterexamples.}
+\subsection{For any sets A, B, C, we have:}
+$$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$$
+True.\\
+$x \in A \cup (B \cap C) \Leftrightarrow x \in A$ or $x \in B \cap C \Leftrightarrow x \in A \cup B$ and $x \in A \cup C \Leftrightarrow x \in (A \cup B) \cap (A \cup C)$
+
+\subsection{For any sets A, B, C, we have:}
+$$(A-B)-C = A-(B-C)$$
+False.\\
+If $A, B, C = \{1\}$, then $(A-B)-C = \emptyset$ and $A-(B-C) = \{1\}$.
+
+\subsection{For any sets A, B, C, we have:}
+$$(A-B) \cup (B-C) \cup (C-A) = A \cup B \cup C$$
+False.\\
+If $A, B, C = \{1\}$, then $(A-B) \cup (B-C) \cup (C-A) = \emptyset$ and $A \cup B \cup C = \{1\}$.
+
+\setcounter{section}{10}
+\section{Prove that if $m$ and $n$ are coprime positive integers, then $\phi(mn) = \phi(m)\phi(n)$}
+$m = p_1^{a_1}...p_k^{a_k}$\\
+$n = q_1^{b_1}...q_i^{b_i}$\\
+Since $m$ and $n$ are coprime, $mn = p_1^{a_1}...p_k^{a_k}q_1^{b_1}...q_i^{b_i}$.\\\\
+Thus, $\phi(m) = m(1-\frac{1}{p_1})...(1-\frac{1}{p_k})$\\
+$\phi(n) = n(1-\frac{1}{q_1})...(1-\frac{1}{q_i})$\\
+$\phi(mn) = mn(1-\frac{1}{p_1})...(1-\frac{1}{p_k})(1-\frac{1}{q_1})...(1-\frac{1}{q_i})$\\\\
+Therefore, $\phi(mn) = \phi(m)\phi(n)$
+
+\section{For a positive integer $n$, define\\ $$F(n) = \sum_{d|n} \phi(d)$$\\ where the sum is over the positive divisors $d$ of $n$, including both 1 and $n$. (For example, the positive divisors of 15 are 1, 3, 5, and 15.)}
+\subsection{Calculate $F(15)$ and $F(100)$}
+$F(15) = \phi(1) + \phi(3) + \phi(5) + \phi(15) = 15$\\
+$F(100) = 100$
+
+\subsection{Calculate $F(p^r)$, where $p$ is prime}
+$F(p^r) = \phi(1) + \phi(p) + \phi(p^2) + ... + \phi(p^r)$\\
+$F(p^r) = 1 + p(1-\frac{1}{p}) + p^2(1-\frac{1}{p}) + ... + p^r(1-\frac{1}{p})$\\
+$F(p^r) = 1 + (p + ... + p^r)(1-\frac{1}{p})$\\
+$F(p^r) = 1 + (p + ... + p^r) - (1 + p + ... p^{r-1})$\\
+$F(p^r) = p^r$
+
+\subsection{Calculate $F(pq)$, where $p,q$ are distinct primes.}
+$F(pq) = \phi(1) + \phi(p) + \phi(q) + \phi(pq)$\\
+$F(pq) = \phi(1) + \phi(p) + \phi(q) + \phi(p)\phi(q)$\\
+$F(pq) = 1 + (p-1) + (q-1) + (p-1)(q-1)$\\
+$F(pq) = 1 + p-1 + q-1 + pq - p - q + 1$\\
+$F(pq) = pq$
+
+\subsection{Formulate a conjecture about $F(n)$ for an arbitrary positive integer $n$. Try to prove your conjecture.}
+Conjecture: $F(n) = n$.\\\\
+For divisors $d$ such that $d|n$, $\phi(\frac{n}{d})$ gives the number of integers $x$ such that $gcd(x,n) = d$.
+Thus, since each number less than or equal to $n$ has a gcd equal to a $d$, each integer less than or equal to $n$ is counted once, accumulating to $n$.
+
+
+
+
+\end{document}

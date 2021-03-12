@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 20: Congruence}
+\author{Declan Murphy Zink}
+\date{11/2/2020}
+\maketitle
+
+\setcounter{section}{1}
+
+\section{Let $p$ be a prime number and $k$ a positive integer.}
+\subsection{Show that if $x$ is an integer such that $x^2 \equiv x $ mod $ p$, then $x \equiv 0$ or $1$ mod $p$.}
+For some $a \in \mathds{Z}$:
+\begin{align*}
+    x^2 &= x + pa\\
+    x^2 - x &= pa\\
+    x(x-1) &= pa
+\end{align*}
+Thus either $p|x$ or $p|(x-1)$.
+$p$ can only divide a multiple of itself (including 0),
+so $x \equiv 0$ mod $p$ or $(x-1) \equiv 0$ mod $p \Rightarrow x \equiv 1$ mod $p$.
+
+\subsection{Show that if $x$ is an integer such that $x^2 \equiv x$ mod $p^k$, then $x \equiv 0$ or $1$ mod $p^k$.}
+For some $a \in \mathds{Z}$:
+\begin{align*}
+    x^2 &= x + p^ka\\
+    x^2 - x &= p^ka\\
+    x(x-1) &= p^ka
+\end{align*}
+Since $x$ and $x-1$ are coprime, $p$ cannot divide both.
+Thus, either $p^k|x$ or $p^k|(x-1)$. 
+$p^k$ can only divide a multiple of itself (including 0),
+so $x \equiv 0$ mod $p^k$ or $(x-1) \equiv 0$ mod $p^k \Rightarrow x \equiv 1$ mod $p^k$.
+
+
+\section{
+    For each of the following congruence equations, either find a solution $x \in \mathds{Z}$ or show that no solution exists:
+}
+\subsection{$99x \equiv 18$ mod $30$.}
+$99x = 18 + 30y, y \in \mathds{Z}$\\
+$hcf(99,30) =$ ?
+\begin{align*}
+    99 &= 3(30) + 9\\
+    30 &= 3(9) + 3\\
+    9 &= 3(3) + 0
+\end{align*}
+$hcf(99,30) = 3$ \\
+$\Rightarrow \exists$ $s,t \in \mathds{Z}$ such that $99s + 30t = 3$
+\begin{align*}
+    3 &= 30 - 3(9)\\
+    3 &= 30 - 3(99 - 3(30))\\
+    3 &= -3(99) + 10(30)
+\end{align*}
+Thus $99(-3) = 3 + 30(-10)$\\
+multiplying by 6: $99(-18) = 18 + 30(-60) \Rightarrow 99(-18) \equiv 18$ mod $30$.\\
+$x = -18$
+
+\subsection{$91x \equiv 84$ mod $143$.}
+$hcf(91, 143) =$ ?
+\begin{align*}
+    143 &= 1(91) + 52\\
+    91 &= 1(52) + 39\\
+    51 &= 1(39) + 13\\
+    39 &= 3(13) + 0
+\end{align*}
+$hcf(91, 143) = 13$\\
+13 does not divide 84, so there is no solution.
+
+\subsection{$x^2 \equiv 2$ mod $5$.}
+$0^2 \equiv 0$ mod $5$\\
+$1^2 \equiv 1$ mod $5$\\
+$2^2 \equiv 4$ mod $5$\\
+$3^2 \equiv 4$ mod $5$\\
+$4^2 \equiv 1$ mod $5$\\
+No solution exists.
+
+\subsection{$x^2 + x + 1 \equiv 0$ mod $5$.}
+$0^2+0+1 \equiv 1$ mod $5$\\
+$1^2+1+1 \equiv 3$ mod $5$\\
+$2^2+2+1 \equiv 2$ mod $5$\\
+$3^2+3+1 \equiv 3$ mod $5$\\
+$4^2+4+1 \equiv 1$ mod $5$\\
+No solution exists.
+
+\subsection{$x^2 + x + 1 \equiv 0$ mod $7$.}
+$x^2 + x \equiv -1$ mod $7$\\
+$x(x+1) \equiv 6$ mod $7$\\
+$x = 2$ is a solution.
+
+\setcounter{section}{4}
+
+\section{}
+\subsection{
+    Use the fact that 7 divides 1001 to find your own "rule of 7."
+    Use your rule to work out the remainder when 6005004003002001 is divided by 7.
+}
+Since $7|1001$:\\
+$10^3 \equiv -1$ mod $7$\\
+$10^6 \equiv 1$ mod $7$\\
+$10^9 \equiv -1$ mod $7$\\
+so $10^{3n} \equiv (-1)^n$ mod $7$\\\\
+Thus for $a_1 ... a_k \in \mathds{Z}$ and $i \in \mathds{Z}$:\\
+$a_1(10^0) + a_2(10^3) + ... + a_k(10^{3i}) \equiv a_1 - a_2 + a_3 - a_4 + ... \pm a_k$ mod $7$.\\\\
+So, $6005004003002001 \equiv 1-2+3-4+5-6 \equiv -3 \equiv 4$ mod $7$.\\
+Thus the remainder is 4.
+
+\subsection{
+    13 also divides 1001. Use this to get a rule of 13 and find the remainder when 6005004003002001 is divided by 13.
+}
+This is the same rule as 7, so $6005004003002001 \equiv 1-2+3-4+5-6 \equiv -3 \equiv 10$ mod $13$.\\
+Thus the remainder is 10.
+
+\subsection{
+    Use the observation that $27 \times 37 = 999$ to work out a rule of 37, and find the remainder when 6005004003002001 is divided by 37.
+}
+Since $27 \times 37 = 999$, therefore $37 | 999$, so:\\
+$10^3 \equiv 1$ mod $37$\\
+$10^6 \equiv 1$ mod $37$\\
+so $10^{3n} \equiv 1$ mod $37$\\\\
+Thus for $a_1 ... a_k \in \mathds{Z}$ and $i \in \mathds{Z}$:\\
+$a_1(10^0) + a_2(10^3) + ... + a_k(10^{3i}) \equiv a_1 + a_2 + ... + a_k$ mod $37$.\\\\
+So, $6005004003002001 \equiv 1+2+3+4+5+6 \equiv 21$ mod $37$.\\
+Thus the remainder is 21.
+
+\section{
+    Let $p$ be a prime number, and let $a$ be an integer that is not divisible by $p$.
+    Prove that the congruence equation $ax \equiv 1$ mod $p$ has a solution $x \in \mathds{Z}$.
+}
+Since $p$ is prime and $p$ doesn't divide $a$, $hcf(a,p) = 1$. Thus $\exists$ $s,t \in \mathds{Z}$ such that $as + pt = 1$.
+Therefore $as = 1 - pt$, so $x=s$ is a solution in $\mathds{Z}$ to $ax \equiv 1$ mod $p$.
+
+\end{document}

@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Functions 1}
+\author{Declan Murphy Zink}
+\date{12/10/2020}
+\maketitle
+
+\setcounter{section}{0}
+
+\section{
+    For each of the following functions $f$, say whether $f$ is 1-1 and whether $f$ is onto:
+}
+\subsection{$f$:$\mathds{R} \rightarrow \mathds{R}$ defined by $f(x)=x^2+2x$ for all $x \in \mathds{R}$.}
+$f(x) = (x+1)^2 -1 \Rightarrow$ Neither 1-1 or onto. Image only spans $[-1, \infty)$, and $f(-2) = f(0)$.
+
+\subsection{$f$:$\mathds{R} \rightarrow \mathds{R}$ defined by}
+\[ f(x) = 
+\begin{cases} 
+    x-2 & x > 1\\
+    -x & -1 \leq x \leq 1 \\
+    x+2 & x < -1 
+\end{cases}
+\]
+Onto, but not 1-1. Image spans $(-\infty, \infty) \Rightarrow \mathds{R}$, but $f(0) = f(2)$.
+
+\subsection{$f$:$\mathds{Q} \rightarrow \mathds{R}$ defined by $f(x) = (x+ \sqrt{2})^2$.}
+
+1-1 because in order for f(a) = f(b) for two rational nubmers a and b, either $a = b$ or $a+b = -2 \sqrt{2}:$\\
+$$(a+\sqrt{2})^2 = (b+\sqrt{2})^2$$
+$$a+\sqrt{2} = b+\sqrt{2} \; or \; a+\sqrt{2} = -b-\sqrt{2}$$
+$$a = b \; or \; a+b = -2 \sqrt{2}$$
+$a+b \neq -2 \sqrt{2}$ becuase they are rational, so it is 1-1.\\
+Not onto because the image only spans $[0, \infty)$.
+
+\subsection{$f: \mathds{N} \times \mathds{N} \times\mathds{N} \rightarrow \mathds{N}$ defined by $f(m,n,r) = 2^m 3^n 5^r$ for all $m,n,r \in \mathds{N}$.}
+1-1 because 2,3, and 5 are prime factors. Not onto because Not all natural numbers can be created, such as 7.
+
+\subsection{$f: \mathds{N} \times \mathds{N} \times\mathds{N} \rightarrow \mathds{N}$ defined by $f(m,n,r) = 2^m 3^n 6^r$ for all $m,n,r \in \mathds{N}$.}
+Not 1-1 because $f(1,1,2) = f(2,2,1)$, ($2^m 3^n 6^r = 2^m 3^n 2^r 3^r$). Not onto because Not all natural numbers can be created, such as 7.
+
+\subsection{
+    Let $\sim$ be the equivalence relation on $\mathds{Z}$ defined by $a \sim b \Leftrightarrow a \equiv b$ mod $7$,
+    and let $S$ be the set of equivalence classes of $\sim$. Define $f: S \rightarrow S$ by $f(cl(s)) = cl(s+1)$
+    for all $s \in \mathds{Z}$.
+}
+$cl(0) \rightarrow cl(1) \rightarrow cl(2) \rightarrow cl(3) \rightarrow cl(4) \rightarrow cl(5) \rightarrow cl(6) \rightarrow cl(0)$,
+so both onto and 1-1.
+
+\setcounter{section}{2}
+
+\section{
+    Two functions $f, g : \mathds{R} \rightarrow \mathds{R}$ are such that for all $x \in \mathds{R}$, $g(x) = x^2 + x + 3$, and
+    $(g \circ f)(x) = x^2 -3x + 5.$ Find the possibilities for $f$.
+}
+$f(x) = y \Rightarrow y^2 + y + 3 = x^2 - 3x +5 \Rightarrow (y)(y+1) = (x-1)(x-2)$. After graphing,
+$y = 1-x$ or $x-2$, so $f(x) \in \{1-x, x-2\}$.
+
+\setcounter{section}{5}
+
+\section{}
+\subsection{Find an onto function from $\mathds{N}$ to $\mathds{Z}$.}
+\[ f(x) = 
+\begin{cases} 
+    -\frac{x-1}{2} & x \equiv 1 \; mod \; 2\\
+    \frac{x}{2} & x \equiv 0 \; mod \; 2
+\end{cases}
+\]
+Or: $f(x) = (-1)^x (\frac{x - (x \% 2)}{2})$, but I'm not sure if the modulus operator is allowed in pure math
+
+\subsection{Find a 1-1 function from $\mathds{Z}$ to $\mathds{N}$.}
+$f(x) = x^2 + x + |x|$
+
+\section{}
+\subsection{
+    Let $S = \{1,2,3\}$ and $T = \{1,2,3,4,5\}$. How many functions are there from $S$ to $T$? How many of these are 1-1?
+}
+$5^3 = 125$ functions total.\\
+$5*4*3 = 60$ 1-1 functions.
+
+\subsection{
+    Let $|S| = m, |T| = n$ with $m \leq n$. Show that the number of 1-1 functions from $S$ to $T$ is equal to $n(n-1)(n-2)...(n-m+1)$.
+}
+In a 1-1 function, each $s \in S$ must map to one $t \in T$. Thus, there are n choices for $s_1$, n-1 choices for $s_2$,
+and so on, continuing until the last s ($s_m$), which will have n-m+1 choices. Thus the total 1-1 functions is $n(n-1)(n-2)...(n-m+1)$.
+
+\end{document}

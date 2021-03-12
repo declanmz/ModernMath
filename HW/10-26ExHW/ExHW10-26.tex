@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 17: Integers 2}
+\author{Declan Murphy Zink}
+\date{10/26/2020}
+\maketitle
+
+\setcounter{section}{5}
+
+\section{
+    Let $a,b,c \in \mathds{Z}$. Define the highest common factor $hcf(a,b,c)$ to be the largest positive integer that divides $a,b$ and $c$.
+    Prove that there are integers $s,t,u$ such that $$hcf(a,b,c) = sa + tb + uc.$$
+    Find such integers $s,t,u$ when $a=91,b=903,c=1792$.
+}
+$hcf(a,b,c)$ can be rewritten as $hcf(hcf(a,b),c)$. We know $hcf(a,b) = xa+yb$ for some integers $x$ and $y$,
+so $hcf(a,b,c) = hcf(xa+yb,c) = w(xa + yb) + uc = wxa + wyb + uc$ for some integers $w$ and $u$.
+We can define $s=wx$ and $t=wy$. Thus $hcf(a,b,c) = sa + tb + uc$.\\\\
+$hcf(91,903,1792) = hcf(hcf(91,903),1792)$.\\
+Find $hcf(91,903)$:
+\begin{align*}
+    903 &= 9(91)+84\\
+    91 &= 1(84) + 7\\
+    84 &= 12(7) + 0\\
+\end{align*}
+$hcf(91,903) = 7$\\
+Find $hcf(7,1792)$:
+\begin{align*}
+    1792 &= 256(7) + 0
+\end{align*}
+$hcf(7,1792) = 7$\\
+Now find $x$ and $y$ for $hcf(91,903) = 91x + 903y$:
+\begin{align*}
+    7 &= 91-84\\
+    7 &= 91-(903-9(91))\\
+    7 &= 10(91)-903
+\end{align*}
+So $hcf(91,903) = 10(91) - 903y$.\\
+Since $hcf(91,903) = hcf(91,903,1792)$, $hcf(91,903,1792) = 10(91) -1(903) + 0(1792)$.
+Thus $s = 10, t = -1, u = 0$.
+
+\setcounter{section}{8}
+
+\section{
+    Let $a,b$ be coprime positive integers. Prove that for any integer $n$ there exist integers $s,t$
+    with $s > 0$ such that $sa + tb = n$.
+}
+If $a$ and $b$ are coprime, there exist integers $c$ and $d$ such that $ca+db=1$.
+Mutliplying by $n$, this means $nca+ndb=n$. Define $s=nc$ and $t=nd$.
+Thus $sa+tb=n$.
+
+\end{document}

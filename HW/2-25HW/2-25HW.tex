@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Group Theory 3}
+\author{Declan Murphy Zink}
+\date{2/25/2021}
+\maketitle
+
+\setcounter{section}{0}
+
+\section{If aH and bH are distinct left cosets of H in G, are Ha and Hb distinct right cosets of H in G? Prove that this is true or give a counterexample.}
+This is false. Counterexample:\\\\
+In $D_6$, let $H = \{e,a\}$. Thus $bH = \{b,ab^2\}$ and $abH = \{ab, b^2\}$, which are distinct left cosets. However $Hb = \{b,ab\}$ and $Hab = \{ab, b\}$, thus $Hb = Hab$, so this statement is false.
+
+\section{If in G $a^5 = e$ and $aba^{-1} = b^2$, find the order of b if $b \neq e$.}
+$$aba^{-1} = b^2$$
+$$ab = b^2a$$
+And...
+$$a^5 = e$$
+$$a^4 = a^{-1}$$
+Then...
+$$aba^{-1} = b^2$$
+$$ba^{-1} = a^{-1}b^2$$
+$$ba^4 = a^4b^2$$
+$$ba^4 = aaaabb$$
+$$ba^4 = aaab^2ab$$
+$$ba^4 = aab^4aab$$
+$$...$$
+$$ba^4 = b^{32}a^4$$
+$$b = b^{32}$$
+$$e = b^{31}$$
+Since 31 is a prime number, the order of b must be 31.
+\end{document}

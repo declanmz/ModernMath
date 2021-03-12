@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Combinatorics and Counting 2}
+\author{Declan Murphy Zink}
+\date{12/7/2020}
+\maketitle
+
+\setcounter{section}{5}
+
+\section{}
+\subsection{
+    Find the number of arrangements of the set $\{1,2,...,n\}$ in which the numbers $1,2$ appear as neighbours.
+}
+When arranging the elements of the set, let us assume for convienence that the position for 1 is chosen first, then 2, ..., then n.
+There will always be n possible positions for 1, but for 2 there are two scenarios:
+if 1 was place on either end (where 2 would only have 1 possible placement) or if 1 was not placed on either end (where 2 would have 2 possible placements).
+The following numbers simply have (n-2)! arrangements.
+Thus the total possible arrangements is such:
+$$\frac{2}{n}((n)(n-2)!) + \frac{n-2}{n}((n)(2)(n-2)!)$$
+$$2(n-2)! + 2(n-2)(n-2)!$$
+$$(2+2(n-2))(n-2)!$$
+$$2(n-1)(n-2)!$$
+$$2(n-1)!$$
+
+\subsection{
+    Let $n \leq 5$. Find the number of arrangements of the set $\{1,2,...,n\}$ in which the numbers $1,2,3$ appear as neighbors
+    in order, and so do numbers $4,5$.
+}
+Let us assume the position of 1,2,3 is chosen first, thus there will be (n-2) placements.
+For 4,5 there are two scenarios: if 1,2,3 was placed on either end (where there would be n-4 possible placements)
+or if 1,2,3 was not placed on either end (where there would be n-5 possible placements).
+The following numbers simply have (n-5)! arrangements.
+Thus the total possible arrangements is such:
+$$(n-2) \left( \left( \frac{n-4}{n-2} \right) (n-5) + \left( \frac{2}{n-2} \right) (n-4) \right) (n-5)!$$
+$$\left((n-5)(n-4)+2(n-4)\right)(n-5)!$$
+$$(n-3)(n-4)(n-5)!$$
+$$(n-3)!$$
+
+\section{
+    Liebeck has $n$ steaks and is surrounded by $n$ hungry wolves. He throws each of the steaks to a random wolf. What is the chance that:
+}
+\subsection{Every wolf gets a steak?}
+Simply determine the chance that a steak will be thrown to a wolf that has not already eaten for each steak, then multiply the probabilities.
+The first steak has an $\frac{n}{n}$ chance, the second has $\frac{n-1}{n}$, the third has $\frac{n-2}{n}$, and so on.
+Multiplied together we get the chance that every wolf gets a steak as $\frac{n!}{n^n}$.
+
+\subsection{Exactly one wolf does not get a steak?}
+Determine the total number of possible arrangements where exactly one wolf doesn't get a steak and divide by the total possible arrangements.
+For one wolf to not get a steak, exactly one wolf must get two steaks. View the steaks as a set of numbers which represent the order in which the steaks were tossed:
+$\{1,2,...,n\}$. Thus the number of ways a single wolf can get two steaks is $\binom{n}{2}$.
+The following wolves can be arranged in $P(n-1,n-2)$ ways (where one wolf does not get a steak).
+Thus the total number of possible arrangements where exactly one wolf doesn't get a steak is $\binom{n}{2} P(n-1,n-2) = \binom{n}{2} (n-1)!$.
+The total possible arrangements is $n^n$, so the chance that exactly one wolf doesn't get a steak is $\frac{\binom{n}{2} (n-1)!}{n^n}$.
+
+\subsection{Liebeck gets eaten, in the case where $n=7$?}
+Assume Liebeck gets eaten when at least one wolf does not get a steak. Thus the chance for him to get eaten is $1-\frac{n!}{n^n}$.
+For $n=7$, this chance is .99388 or 99.388\%. 
+
+\setcounter{section}{12}
+
+\section{}
+\subsection{Find the coefficient of $x^{15}$ in $(1+x)^{18}$.}
+$\binom{18}{15} = 816$
+
+\subsection{Find the coefficient of $x^4$ in $(2x^3 - \frac{1}{x^2})^8$.}
+$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$, so, for $(2x^3 - \frac{1}{x^2})^8$,
+$x^4$ will occur when $k=4$. Thus the coefficient is $\binom{8}{4}(2)^4(-1)^4 = 1120$.
+
+\subsection{Find the constant term in the expansion of $(y+x^2-\frac{1}{xy})^{10}$.}
+Find a k and j such that $(y)^k (x^2)^j (\frac{1}{xy})^{10-k-j} = 1$. For this constant term, $k=4, j=2$.
+Thus this means the constant term is $\binom{10}{4,2,4}(1)^4(1)^2(-1)^4 = 3150$.
+
+\setcounter{section}{15}
+\section{
+    At a party with six rather decisive people, any two people either like each other or dislike eachother.
+    Prove that at this party, either (i) there are three people all of whom like each other, or (ii) there are three people,
+    all of whom dislike eachother. Show that it is possible to have a party with five (decisive) people where neither (i) nor (ii) holds.
+}
+Imagine the party as a graph with six points A, B, C, D, E, F and lines connecting every point.
+Let us represent a green line as liking eachother and a red line as disliking eachother.
+Looking at the point A, there are two possible scenarios for the five lines connected to it: either at least 3 lines are green or at least 3 lines are red.
+Let us look at if at least three lines are green and say they connect to B, C, and D.
+If there is a green line between any one of B, C, or D, then we have scenario (i), where three people like eachother: 
+A and the the two out of B, C, and D that are connected with a green line.
+However, if there is not a green line between any one of B, C, or D, then we have scenario (ii), where three people dislike eachother:
+B, C, and D.
+This scenario looking at point A is the same if at least 3 lines connected to it are red (except that the red and green lines are swapped).
+Thus, for 6 people, either (i) or (ii) must be true.\\\\
+For five people this is not the case. Counterexample: Make a graph with five points A, B, C, D, E.
+If green lines only connect A-B, B-C, C-D, D-E, and E-A, and red lines connect everything else, then there are no three
+people who mutually like each other or mutually dislike eachother.
+
+
+\end{document}

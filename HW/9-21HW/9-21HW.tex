@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{sectsty}
+% \usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\title{Assignment 4: Rational Numbers}
+\author{Declan Murphy Zink}
+\date{9/21/2020}
+\maketitle
+
+\setcounter{section}{0}
+
+\section{}
+\subsection{Prove that $\sqrt{3}$ is irrational.}
+By contradiction. If $\sqrt{3}$ is rational, then for relatively prime integers $p,q$, $\sqrt{3} = \frac{p}{q}$.
+This can be rewritten as $\sqrt{3} q = p$, and after squaring both sides we get $3q^2 = p^2$.
+Thus, $p^2$ is a multiple of 3 and therefore $p$ is a multiple of 3, so for some integer $k$, $p^2 = 9k$.
+Thus $3q^2 = 9k \Rightarrow q^2 = 3k$,
+but this is a contradiction because $p$ and $q$ can't both be mutiples of 3 if they are relatively prime.
+
+\subsection{Prove that there are no rationals $r,s$ such that $\sqrt{3} = r + s \sqrt{2}$.}
+By contradiction. If $\sqrt{3} = r + s \sqrt{2}$, then after squaring we get $3 = r^2 + 2rs \sqrt{2} + 2q^2$.
+This can be rewritten as $\frac{3 - r^2 - 2q^2}{2rs} = \sqrt{2}$.
+However this is a contradiction because $\frac{3 - r^2 - 2q^2}{2rs}$ is rational but $\sqrt{2}$ is irrational.
+
+\section{Which of the following numbers are rational and which are irrational?}
+\subsection{$\sqrt{2} + \sqrt{\frac{3}{2}}$.}
+Irrational. Proof by contradiction: 
+Assume $\sqrt{2} + \sqrt{\frac{3}{2}}$ is rational, 
+and therefore $\sqrt{2} + \sqrt{\frac{3}{2}} = p$ for $p \in \mathds{Q}$.
+After squaring this is: $2 + \frac{3}{2} + 2 \sqrt{3} = p^2$, 
+which can be rewritten as: $\sqrt{2} = \frac{p^2}{2} - \frac{7}{4}$.
+This is a contradiction because $\sqrt{3}$ is irrational but $\frac{p^2}{2} - \frac{7}{4}$ is rational by closure.
+
+\subsection{$1 + \sqrt{2} + \sqrt{\frac{3}{2}}$.}
+Irrational. Because rational + irrational = irrational.
+
+\subsection{$2 \sqrt{18} - 3 \sqrt{8} + \sqrt{4}$.}
+Rational. Because $2 \sqrt{18} = \sqrt{72} = 3 \sqrt{8}$, 
+$2 \sqrt{18} - 3 \sqrt{8} + \sqrt{4} = \sqrt{4} = 2$, which is rational.
+
+\subsection{$\sqrt{2} + \sqrt{3} + \sqrt{5}$.}
+Irrational. Proof by contradiction: Assume $\sqrt{2} + \sqrt{3} + \sqrt{5}$ is rational,
+and therefore for $p \in \mathds{Q}$: 
+
+$$\sqrt{2} + \sqrt{3} + \sqrt{5} = p$$
+$$\sqrt{2} + \sqrt{3} = p - \sqrt{5}$$
+$$5 + 2 \sqrt{6} = p^2 - 2p \sqrt{5} + 5$$
+$$2 \sqrt{6} + 2p \sqrt{5} = p^2$$
+$$24 + 8p \sqrt{30} + 20p^2 = p^4$$
+$$\sqrt{30} = \frac{p^4 - 20p^2 - 24}{8p}$$
+
+This is a contradiction because $\frac{p^4 - 20p^2 - 24}{8p}$ is rational by closure, 
+but $\sqrt{30}$ is irrational.
+
+
+\subsection{$\sqrt{2} + \sqrt{3} - \sqrt{5 + 2 \sqrt{6}}$.}
+Rational. Because $\sqrt{5 + 2 \sqrt{6}}^2 = 5 + 2 \sqrt{6} = ( \sqrt{2} + \sqrt{3} )^2$,
+therefore $\sqrt{5 + 2 \sqrt{6}} = \sqrt{2} + \sqrt{3}$ (since both must be positive numbers).
+Thus, $\sqrt{2} + \sqrt{3} - \sqrt{5 + 2 \sqrt{6}} = \sqrt{2} + \sqrt{3} - \sqrt{2} - \sqrt{3} = 0$,
+which is rational.
+
+\section{For each of the following statements, either prove it is true or give a counterexample to show it is false.}
+\subsection{The product of two rational numbers is always rational.}
+True. If $x = \frac{a}{b}$ and $y = \frac{c}{d}$ for $a,b,c,d \in \mathds{Z}$ and $x,y \in \mathds{Q}$, 
+then $xy = \frac{ac}{bd}$, which is rational because $ac$ and $bd$ are integers by closure.
+
+\subsection{The product of two irrational numbers is always irrational.}
+False. Counterexample: $\sqrt{2} * 2 \sqrt{2} = 4$, which is rational.
+
+\subsection{The product of two irrational numbers is always rational.}
+False. Counterexample: $\sqrt{2} * \sqrt{3} = \sqrt{6}$, which is irrational.
+
+\subsection{The product of a non-zero rational and an irrational is always irrational.}
+True. Proof by contradiction: If $a = bc$ where $a,b$ are rational and $c$ is irrational, then $\frac{a}{b} = c$.
+This is a contradiction because $\frac{a}{b}$ is rational by closure but $c$ is irrational.
+
+\end{document}
